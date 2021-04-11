@@ -1,13 +1,14 @@
 import React from 'react';
-import './card.css'
+import './card.css';
+import { Card, Icon, Image } from 'semantic-ui-react'
 
-const Card = props => {
+const CardComponent = props => {
 const {className, style, children} = props;
     return (
-      <div className={className} style={style}>
+      <Card className={className} style={style}>
         {children}
-      </div>
+      </Card>
     )
 }
 
-export default Card;
+export default CardComponent;
