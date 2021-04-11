@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PhoneList from '../components/PhoneList';
 
 const phones = [
@@ -53,7 +53,20 @@ const phones = [
 ] 
 
 const PhoneListHome = () => {
-    return < PhoneList items={phones} />
+
+    const [isLoading, setLoading] = useState(false);
+
+
+    const sendRequest = async () => {
+        const response = await fetch('http://localhost:8000/phones');
+        const responsePhonesData = await response.json();
+    }
+
+    useEffect(() => {
+        sendRequest();
+    }, [])
+
+    return <PhoneList items={phones}/>
 }
 
 export default PhoneListHome;

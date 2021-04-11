@@ -2,9 +2,6 @@ import React from 'react';
 import PhoneItem from './PhoneItem'
 
 const PhoneList = props => {
-
-
-
     if(props.items.lenght === 0) {
         return(
             <div className="center">
