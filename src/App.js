@@ -8,14 +8,15 @@ import PhoneDetailView from './phone-detail/pages/PhoneDetailView'
 const App = () => {
   return (
    <Router>
-      <Route path="/" exact>
-        <PhoneListHome />
-      </Route>
-
-      <Route path="/phones/mobile-phone">
-        <PhoneDetailView />
-      </Route>
-      <Redirect to="/"/>
+      <Switch>
+        <Route path="/" exact>
+          <PhoneListHome />
+        </Route>
+        <Route path="/phones/mobile-phone">
+          <PhoneDetailView />
+        </Route>
+        <Redirect to="/"/>
+      </Switch>
    </Router>
   );
 }
