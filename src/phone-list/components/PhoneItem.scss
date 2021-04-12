@@ -1,0 +1,56 @@
+.phone-list__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 17px 10px -10px rgba(0,0,0,0.4);
+    transition: all ease-in-out 300ms;
+
+    &:hover {
+      box-shadow: 0px 37px 20px -15px rgba(0,0,0,0.2);
+      transform: translate(0px, -10px);
+  }
+ 
+
+  .image {
+      width: 120px;
+      transform: scale(.8);
+      margin-bottom: 10px;
+  }
+
+  .ui.card.phone-list__content {
+    height: 100%;
+    min-height: 100%;
+    .header {
+      margin-bottom: 10px;
+    }
+  }
+
+  .phone-list__item-wrapper {
+    height: 100%;
+    min-height: 100%;
+  }
+
+  .phone-list__item {
+    height: 100%;
+    min-height: 100%;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .phone-list__extra-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .phone-list__icon-group {
+      display: flex;
+      margin-right: 5px;
+      min-width: fit-content;
+    }
+  }
+}

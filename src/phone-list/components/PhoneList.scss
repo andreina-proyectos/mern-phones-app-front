@@ -1,0 +1,13 @@
+.home__phone-list.main {
+    display: grid;
+    justify-content: center;
+    grid-template-rows: repeat(auto, 1fr);
+    grid-template-columns: repeat(auto-fill, 290px);
+    flex-wrap: wrap;
+    gap: 30px 30px;
+    margin-top: 12vh;
+    margin-bottom: 5vh;
+    padding: 25px;
+}
+
+  

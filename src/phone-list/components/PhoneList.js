@@ -1,5 +1,6 @@
 import React from 'react';
 import PhoneItem from './PhoneItem'
+import './PhoneList.scss'
 
 const PhoneList = props => {
     if(props.items.lenght === 0) {
@@ -11,7 +12,7 @@ const PhoneList = props => {
     }
 
     return (
-        <ul className="home__phone-list">
+        <ul className="home__phone-list main">
             {props.items.map(({id, name, manufacturer, description, color, price, imageFileName, screen, resolution, processor, ram, weight, memory, cam}) =>
                 <PhoneItem
                  key={id} 

@@ -1,0 +1,13 @@
+.app__header {
+    top: 0px;
+    position: fixed;
+    z-index: 2;
+    background-image: linear-gradient(to right top, #845ec2, #6a92e1, #7abdeb, #b3e0ef, #f9ffff);
+    width: 100vw;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+

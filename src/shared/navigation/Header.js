@@ -1,11 +1,11 @@
 import React from 'react';
-import './card.css'
+import PhonesLogo from '../components/PhonesLogo';
+import './Header.scss'
 
 const Header = props => {
-const {className, style, children} = props;
     return (
-      <div >
-        
+      <div className="app__header" >
+        <h1>PHONE CATALOG</h1>
       </div>
     )
 }
