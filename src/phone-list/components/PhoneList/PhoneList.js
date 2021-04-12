@@ -1,5 +1,5 @@
 import React from "react";
-import PhoneItem from "./PhoneItem";
+import PhoneItem from "../PhoneItem/PhoneItem";
 import "./PhoneList.scss";
 
 const PhoneList = (props) => {

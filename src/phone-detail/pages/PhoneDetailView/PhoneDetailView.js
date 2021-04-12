@@ -2,11 +2,11 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams, Redirect } from "react-router-dom";
 import { Card, Icon, Image, Label, Popup } from "semantic-ui-react";
-import CardComponent from "../../shared/components/Card";
-import ErrorMessage from "../../shared/components/ErrorMessage";
-import Footer from "../../shared/components/Footer";
-import LoaderSpinner from "../../shared/components/LoaderSpinner";
-import Header from "../../shared/navigation/Header";
+import CardComponent from "../../../shared/components/Card";
+import ErrorMessage from "../../../shared/components/ErrorMessage";
+import Footer from "../../../shared/components/Footer/Footer";
+import LoaderSpinner from "../../../shared/components/LoaderSpinner";
+import Header from "../../../shared/navigation/Header";
 import "./PhoneDetailView.scss";
 
 const PhoneDetailView = () => {

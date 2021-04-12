@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Card, Icon, Image, Label } from "semantic-ui-react";
-import CardComponent from "../../shared/components/Card";
+import CardComponent from "../../../shared/components/Card";
 import "./PhoneItem.scss";
 
 const PhoneItem = (props) => {
