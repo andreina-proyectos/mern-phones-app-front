@@ -9,7 +9,7 @@ import {
 import PhoneListHome from "./phone-list/pages/PhoneListHome";
 import PhoneDetailView from "./phone-detail/pages/PhoneDetailView/PhoneDetailView";
 import "./scss/app.scss";
-import Page404Error from "./shared/components/Page404Error";
+import Page404Error from "./shared/components/Page404Error/Page404Error";
 
 const App = () => {
   return (

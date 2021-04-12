@@ -6,7 +6,7 @@ import CardComponent from "../../../shared/components/Card";
 import ErrorMessage from "../../../shared/components/ErrorMessage";
 import Footer from "../../../shared/components/Footer/Footer";
 import LoaderSpinner from "../../../shared/components/LoaderSpinner";
-import Header from "../../../shared/navigation/Header";
+import Header from "../../../shared/navigation/Header/Header";
 import "./PhoneDetailView.scss";
 
 const PhoneDetailView = () => {

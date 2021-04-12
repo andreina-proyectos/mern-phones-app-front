@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ErrorMessage from "../../shared/components/ErrorMessage";
 import Footer from "../../shared/components/Footer/Footer";
 import LoaderSpinner from "../../shared/components/LoaderSpinner";
-import Header from "../../shared/navigation/Header";
+import Header from "../../shared/navigation/Header/Header";
 import PhoneList from "../components/PhoneList/PhoneList";
 
 const PhoneListHome = () => {
