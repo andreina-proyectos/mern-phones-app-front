@@ -1,4 +1,4 @@
-# This is a MERN project about Phones Catalog. I did the backend with Node.js and Express.js. And the databse is storaged in MongoDB. On the front site, we manage React. 📱📲✨
+# This is a MERN project about Phones Catalog. I did the backend with Node.js and Express.js. And the database is storaged in MongoDB. On the front site, we manage React. 📱📲✨
 
 # Getting Started with Create React App
 
