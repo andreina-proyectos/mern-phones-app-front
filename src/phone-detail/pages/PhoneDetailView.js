@@ -1,119 +1,145 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from "react-router-dom";
-import { Card, Icon, Image, Label, Popup } from 'semantic-ui-react';
-import CardComponent from '../../shared/components/Card';
-import ErrorMessage from '../../shared/components/ErrorMessage';
-import Footer from '../../shared/components/Footer';
-import LoaderSpinner from '../../shared/components/LoaderSpinner';
-import Header from '../../shared/navigation/Header';
-import './PhoneDetailView.scss';
-import axios from 'axios';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useParams, Redirect } from "react-router-dom";
+import { Card, Icon, Image, Label, Popup } from "semantic-ui-react";
+import CardComponent from "../../shared/components/Card";
+import ErrorMessage from "../../shared/components/ErrorMessage";
+import Footer from "../../shared/components/Footer";
+import LoaderSpinner from "../../shared/components/LoaderSpinner";
+import Header from "../../shared/navigation/Header";
+import "./PhoneDetailView.scss";
 
 const PhoneDetailView = () => {
-    const [loadedPhone, setLoadedPhone] = useState({});
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState();
-    const { phoneId } = useParams();
+  const [loadedPhone, setLoadedPhone] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState();
+  const { phoneId } = useParams("");
 
-    useEffect(() => {
-        setIsLoading(true);
-        axios.get(`http://localhost:8000/phones/${phoneId}`)
-        .then(res => {
-            setLoadedPhone(res.data);
-            setIsLoading(false);
-        })
-        .catch(error => {
-            setIsLoading(false);
-            setError({"error": "Error loading phone. Please refresh your page" })
+  useEffect(() => {
+    setIsLoading(true);
+    axios
+      .get(`http://localhost:8000/phones/${phoneId}`)
+      .then((res) => {
+        setLoadedPhone(res.data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        if (error.response.status === 404) {
+          setError("Error 404");
+          setIsLoading(false);
+        }
+        setError(error.response.status);
+      });
+  }, [phoneId]);
 
-        })
-    }, [phoneId])
+  const {
+    name,
+    manufacturer,
+    description,
+    color,
+    price,
+    imageFileName,
+    screen,
+    resolution,
+    processor,
+    ram,
+    weight,
+    memory,
+    cam,
+  } = loadedPhone;
 
-    const { name, manufacturer, description, color, price, imageFileName, screen, resolution, processor, ram, weight, memory, cam } = loadedPhone;
-    
-    return (
-        <>
-            <Header />
-            {isLoading && (
-                < LoaderSpinner isFromHome={false} />
-            )}
+  return (
+    <>
+      <Header />
+      {isLoading && <LoaderSpinner isFromHome={false} />}
 
-            {error && <ErrorMessage textMessage={error} />}
-            
-            {!isLoading && loadedPhone && 
-                <div className="phone-detail__main">
-                    <CardComponent className="phone-detail__content">
-                        <Card.Content>
-                        <Label as='a' color='red' ribbon>
-                        {name}
-                        </Label>
+      {error && <ErrorMessage textMessage={error} />}
 
-                        <Image src={imageFileName} wrapped ui={false} alt={manufacturer} />
-       
-                        <Card.Meta className="phone-detail__meta-info">
-                            <Popup content='You can pay in bitcoins!' trigger={   <Label id="label-price" className="phone-detail__label-price" color='purple' horizontal>
-                            {price}
-                            </Label>}/>
-                            <Label as='a' color='yellow'>
-                                {manufacturer}
-                                <Label.Detail>Manufacturer</Label.Detail>
-                            </Label>
-                        </Card.Meta>
+      {error && <Redirect to="/404" />}
 
-                    <Card.Description>
-                        {description}
-                    </Card.Description>
-                    </Card.Content>
+      {!isLoading && loadedPhone && !error && (
+        <div className="phone-detail__main">
+          <CardComponent className="phone-detail__content">
+            <Card.Content>
+              <Label as="a" color="red" ribbon>
+                {name}
+              </Label>
 
-                    <Card.Content>
-                        <Card.Description>
-                            {color}
-                        </Card.Description>
-                    </Card.Content>
+              <Image
+                src={imageFileName}
+                wrapped
+                ui={false}
+                alt={manufacturer}
+              />
 
+              <Card.Meta className="phone-detail__meta-info">
+                <Popup
+                  content="You can pay in bitcoins!"
+                  trigger={
+                    <Label
+                      id="label-price"
+                      className="phone-detail__label-price"
+                      color="purple"
+                      horizontal
+                    >
+                      {price}
+                    </Label>
+                  }
+                />
+                <Label as="a" color="yellow">
+                  {manufacturer}
+                  <Label.Detail>Manufacturer</Label.Detail>
+                </Label>
+              </Card.Meta>
 
-                    <Card.Content extra>
-                        <div className="phone-list__extra-wrapper">
-                            <div className="phone-list__icon-group">
-                                <Icon name='crop' />
-                                <span>{`${screen} "`}</span>
-                            </div>
+              <Card.Description>{description}</Card.Description>
+            </Card.Content>
 
-                            <div className="phone-list__icon-group">
-                                <Icon name='camera' />
-                                <span>{`${cam}`}</span>
-                            </div>
+            <Card.Content>
+              <Card.Description>{color}</Card.Description>
+            </Card.Content>
 
-                            <div className="phone-list__icon-group">
-                                <Icon name='microchip' />
-                                <span>{`${memory}`}</span>
-                            </div>
-                            <div className="phone-list__icon-group">
-                                <Icon name='weight' />
-                                <span>{`${weight}`}</span>
-                            </div>
-                            <div className="phone-list__icon-group">
-                                <Icon name='compress' />
-                                <span>{`${resolution}`}</span>
-                            </div>
-                            <div className="phone-list__icon-group">
-                                <Icon name='hubspot' />
-                                <span>{`${processor}`}</span>
-                            </div>
-                            <div className="phone-list__icon-group">
-                                <Icon name='window restore outline' />
-                                <span>{`${ram} RAM`}</span>
-                            </div>
-                        </div>
-                    </Card.Content> 
-
-                    </CardComponent>
+            <Card.Content extra>
+              <div className="phone-list__extra-wrapper">
+                <div className="phone-list__icon-group">
+                  <Icon name="crop" />
+                  <span>{`${screen} "`}</span>
                 </div>
-            }
 
-            <Footer />
-        </>
-        )
-}
+                <div className="phone-list__icon-group">
+                  <Icon name="camera" />
+                  <span>{`${cam}`}</span>
+                </div>
+
+                <div className="phone-list__icon-group">
+                  <Icon name="microchip" />
+                  <span>{`${memory}`}</span>
+                </div>
+                <div className="phone-list__icon-group">
+                  <Icon name="weight" />
+                  <span>{`${weight}`}</span>
+                </div>
+                <div className="phone-list__icon-group">
+                  <Icon name="compress" />
+                  <span>{`${resolution}`}</span>
+                </div>
+                <div className="phone-list__icon-group">
+                  <Icon name="hubspot" />
+                  <span>{`${processor}`}</span>
+                </div>
+                <div className="phone-list__icon-group">
+                  <Icon name="window restore outline" />
+                  <span>{`${ram} RAM`}</span>
+                </div>
+              </div>
+            </Card.Content>
+          </CardComponent>
+        </div>
+      )}
+
+      <Footer />
+    </>
+  );
+};
 
 export default PhoneDetailView;

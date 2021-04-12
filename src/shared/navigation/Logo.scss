@@ -1,6 +1,6 @@
-
-
-svg{max-width:100%;}
+svg {
+  max-width: 100%;
+}
 $electrons: 3;
 $atom-size: 40px;
 $logo_config: (
@@ -9,7 +9,7 @@ $logo_config: (
   timing: linear,
   iteration: infinite,
   direction: normal,
-  fill-mode: forwards
+  fill-mode: forwards,
 );
 
 @function sh-setup($config) {
@@ -22,24 +22,24 @@ $logo_config: (
   }
 }
 .e-letter {
-    height: $atom-size;
-    position: relative;
-    width: $atom-size;
+  height: $atom-size;
+  position: relative;
+  width: $atom-size;
 
-    svg:not(#orbit) {
-      animation: sh-setup($logo_config);
-      position: absolute;
-      top: -50%;
-      left: 0;
-      transform-origin: bottom center;
-    }
+  svg:not(#orbit) {
+    animation: sh-setup($logo_config);
+    position: absolute;
+    top: -50%;
+    left: 0;
+    transform-origin: bottom center;
+  }
 }
 
-  .logo-title {
-    font-family: 'Helvetica Neue', Helvetica, sans-serif;
-    font-weight: normal;
-    color:#fff;
-    font-size: 22px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-  }
+.logo-title {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: normal;
+  color: #fff;
+  font-size: 22px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
