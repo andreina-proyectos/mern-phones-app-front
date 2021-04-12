@@ -4,7 +4,7 @@ import "./Logo.scss";
 const Logo = (props) => {
   return (
     <div>
-      <div class="e-letter">
+      <div className="e-letter">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 100 100"
@@ -13,7 +13,7 @@ const Logo = (props) => {
           <circle
             fill="none"
             stroke="#652A7A"
-            stroke-width="5"
+            strokeWidth="5"
             cx="50"
             cy="50 "
             r="40"
@@ -22,9 +22,9 @@ const Logo = (props) => {
           <text
             x="50%"
             y="50%"
-            dominant-baseline="middle"
+            dominantBaseline="middle"
             width="34"
-            text-anchor="middle"
+            textAnchor="middle"
             fill="#fff"
           >
             P

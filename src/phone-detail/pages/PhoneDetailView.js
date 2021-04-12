@@ -20,7 +20,7 @@ const PhoneDetailView = () => {
     axios
       .get(`http://localhost:8000/phones/${phoneId}`)
       .then((res) => {
-        setLoadedPhone(res.data);
+        setLoadedPhone(res.data[0]);
         setIsLoading(false);
       })
       .catch((error) => {
