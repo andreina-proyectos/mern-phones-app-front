@@ -77,21 +77,26 @@ const PhoneDetailView = () => {
                 `http://localhost:8000/phones/${phoneId}`
             );
 
-            const responseDataJson = await responseData.json();
+            const responseDataJson = await responseData.json().then(
+                (res) => {
+                    setIsLoading(false);
+                    setLoadedPhone(res);
+                    console.log("res ====>", res);
 
-             setLoadedPhone(responseDataJson);
-             setIsLoading(false);
+                     console.log("loadedPhone ------------", loadedPhone);
+                 
+                }
+            );
+        
           } catch (err) {
             setIsLoading(false);
-            setError(error.message)
           }
         };
 
         fetchPhones();
-      }, [  ]);
-        
-         const { name, manufacturer, description, color, price, imageFileName, screen, resolution, processor, ram, weight, memory, cam } = loadedPhone;
-      
+      }, [ phoneId]);
+
+    //  const { name, manufacturer, description, color, price, imageFileName, screen, resolution, processor, ram, weight, memory, cam } = loadedPhoneData;
     
     return (
         <>
@@ -106,38 +111,66 @@ const PhoneDetailView = () => {
             {!isLoading && loadedPhone && 
                 <div className="phone-detail__main">
                     <CardComponent className="phone-detail__content">
-                        <p>soy card detail</p>
-                       
-
                         <Card.Content>
-                <Image src={imageFileName} wrapped ui={false} alt={name} />
-                    <Card.Header>{name}</Card.Header>
+                        <Label as='a' color='red' ribbon>
+                        {loadedPhone.name}
+                      </Label>
+                <Image src={loadedPhone.imageFileName} wrapped ui={false} alt={loadedPhone.manufacturer} />
+       
                     <Card.Meta>
                     <Label color='purple' horizontal>
-                    {price}
+                    {loadedPhone.price}
                   </Label>
-                        <span className='date'></span>
+                  <Label as='a' color='yellow'>
+                
+                  {loadedPhone.manufacturer}
+                  <Label.Detail>Manufacturer</Label.Detail>
+                </Label>
+                       
                     </Card.Meta>
                     <Card.Description>
-                        {manufacturer}
+                        {loadedPhone.description}
                     </Card.Description>
                     </Card.Content>
+
+                    <Card.Content>
+                    <Card.Description>
+                    {loadedPhone.color}
+                </Card.Description>
+                </Card.Content>
+
 
                     <Card.Content extra>
                         <div className="phone-list__extra-wrapper">
                             <div className="phone-list__icon-group">
                                 <Icon name='crop' />
-                                <span>{`${screen} "`}</span>
+                                <span>{`${loadedPhone.screen} "`}</span>
                             </div>
 
                             <div className="phone-list__icon-group">
                                 <Icon name='camera' />
-                                <span>{`${cam}`}</span>
+                                <span>{`${loadedPhone.cam}`}</span>
                             </div>
 
                             <div className="phone-list__icon-group">
                                 <Icon name='microchip' />
-                                <span>{`${memory}`}</span>
+                                <span>{`${loadedPhone.memory}`}</span>
+                            </div>
+                            <div className="phone-list__icon-group">
+                                <Icon name='weight' />
+                                <span>{`${loadedPhone.weight}`}</span>
+                            </div>
+                            <div className="phone-list__icon-group">
+                                <Icon name='compress' />
+                                <span>{`${loadedPhone.resolution}`}</span>
+                            </div>
+                            <div className="phone-list__icon-group">
+                                <Icon name='hubspot' />
+                                <span>{`${loadedPhone.processor}`}</span>
+                            </div>
+                            <div className="phone-list__icon-group">
+                                <Icon name='window restore outline' />
+                                <span>{`${loadedPhone.ram} RAM`}</span>
                             </div>
                         </div>
                     </Card.Content> 

@@ -8,6 +8,44 @@
     background-image: linear-gradient(to right top, #6433b3, #8b56bf, #ac7acc, #c9a0da, #e3c7e9);
 }
 
-// .phone-detail__content.card {
 
-// }
+.ui.card.phone-detail__content {
+    width: 330px;
+
+    .image:not(.label) {
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+
+        img {
+            width: 200px;
+            margin-top: 5px;
+        }
+    }
+}
+
+
+
+@media all and (max-width: 400px) {
+    .phone-detail__main {
+       
+        .phone-list__extra-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            .phone-list__icon-group {
+                margin-right: 8px;
+            }
+        }
+    }
+
+    .phone-list__icon-group {
+        width: fit-content;
+    }
+
+    .image {
+        img {
+            width: 120px;
+            margin-top: 5px;
+        }
+    }
+}
