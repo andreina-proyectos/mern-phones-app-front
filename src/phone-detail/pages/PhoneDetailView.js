@@ -10,27 +10,21 @@ import './PhoneDetailView.scss';
 import axios from 'axios';
 
 const PhoneDetailView = () => {
-
-
     const [loadedPhone, setLoadedPhone] = useState({});
-
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState();
- 
     const { phoneId } = useParams();
 
     useEffect(() => {
         setIsLoading(true);
         axios.get(`http://localhost:8000/phones/${phoneId}`)
         .then(res => {
-            console.log(res)
             setLoadedPhone(res.data);
             setIsLoading(false);
         })
         .catch(error => {
-            console.log(error);
             setIsLoading(false);
-            setError({"error": "error loading phone" })
+            setError({"error": "Error loading phone. Please refresh your page" })
 
         })
     }, [phoneId])
