@@ -35,7 +35,7 @@ const PhoneDetailView = () => {
         <>
             <Header />
             {isLoading && (
-                < LoaderSpinner />
+                < LoaderSpinner isFromHome={false} />
             )}
 
             {error && <ErrorMessage textMessage={error} />}

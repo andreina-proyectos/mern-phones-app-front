@@ -40,7 +40,7 @@ const PhoneListHome = () => {
         <React.Fragment>
             <Header />
             {isLoading && (
-                < LoaderSpinner />
+                < LoaderSpinner isFromHome />
             )}
 
             {error && <ErrorMessage textMessage={error} />}

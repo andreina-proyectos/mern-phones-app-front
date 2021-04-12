@@ -1,10 +1,10 @@
 import React from 'react'
 import { Dimmer, Loader, Image } from 'semantic-ui-react'
 
-const LoaderSpinner = () => (
+const LoaderSpinner = props => (
   <div>
       <Dimmer active inverted>
-        <Loader inverted>Loading Phones...</Loader>
+        <Loader inverted>{props.isFromHome ? "Loading Phones..." : "Loading Phone..."}</Loader>
       </Dimmer>
       <Image src='/images/wireframe/short-paragraph.png' />
 
