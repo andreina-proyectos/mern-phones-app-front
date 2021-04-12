@@ -1,0 +1,45 @@
+svg {
+  max-width: 100%;
+}
+$electrons: 3;
+$atom-size: 40px;
+$logo_config: (
+  name: logo_kinetics,
+  duration: 2.5s,
+  timing: linear,
+  iteration: infinite,
+  direction: normal,
+  fill-mode: forwards,
+);
+
+@function sh-setup($config) {
+  @return zip(map-values($config)...);
+}
+
+@keyframes logo_kinetics {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.e-letter {
+  height: $atom-size;
+  position: relative;
+  width: $atom-size;
+
+  svg:not(#orbit) {
+    animation: sh-setup($logo_config);
+    position: absolute;
+    top: -50%;
+    left: 0;
+    transform-origin: bottom center;
+  }
+}
+
+.logo-title {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: normal;
+  color: #fff;
+  font-size: 22px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}

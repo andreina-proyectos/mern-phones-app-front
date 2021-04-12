@@ -1,0 +1,74 @@
+.phone-detail__main {
+  padding: 12vh 25px 25px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(-45deg, #270932, #652a7a, #c896cf);
+  background-size: 200% 200%;
+  animation: gradientBG 4s ease infinite;
+  animation: gradientBG 4s ease infinite;
+}
+
+.ui.card.phone-detail__content {
+  width: 330px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+
+  .image:not(.label) {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: 200px;
+      margin-top: 5px;
+    }
+  }
+}
+
+.label.horizontal.phone-detail__label-price {
+  min-height: 100%;
+  max-width: fit-content;
+  display: flex;
+  align-items: center;
+}
+
+.phone-detail__meta-info {
+  display: flex;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media all and (min-width: 200px) and (max-width: 400px) {
+  .ui.card.phone-detail__content {
+    width: 255px;
+    .content .image img {
+      width: 100px;
+    }
+  }
+
+  .phone-detail__main {
+    .phone-list__extra-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      .phone-list__icon-group {
+        margin-right: 8px;
+      }
+    }
+  }
+
+  .phone-list__icon-group {
+    width: fit-content;
+  }
+}
