@@ -5,7 +5,7 @@ import CardComponent from '../../shared/components/Card';
 import './PhoneItem.scss';
 
 const PhoneItem = props => {
-const {id, name, manufacturer, description, color, price, imageFileName, screen, resolution, processor, ram, weight, memory, cam} = props;
+const {id, name, manufacturer, price, imageFileName, screen, memory, cam} = props;
     return (
         <li className="phone-list__item">
             <Link className="phone-list__item-wrapper" to={`/phones/${id}`} >

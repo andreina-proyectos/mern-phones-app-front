@@ -1,12 +1,16 @@
 import React from 'react';
-import PhonesLogo from '../components/PhonesLogo';
+import { Link } from 'react-router-dom';
 import './Header.scss'
+import Logo from './Logo';
 
 const Header = props => {
     return (
-      <div className="app__header" >
-        <h1>PHONE CATALOG</h1>
-      </div>
+      <Link to="/">
+        <div className="app__header" >
+          <Logo />
+          <h1>PHONE CATALOG</h1>
+        </div>
+      </Link>
     )
 }
 
